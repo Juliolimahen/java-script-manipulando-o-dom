@@ -1,36 +1,6 @@
 const controle = document.querySelectorAll("[data-controle]")
 const estatistica = document.querySelectorAll("[data-estatistica]")
 
-controle.forEach((elemento) => {
-    elemento.addEventListener('click', (evento) => {
-        manipulaDados(evento.target.dataset.controle, evento.target.parentNode);
-        atualizaEstatisticas(evento.target.dataset.peca)
-    })
-})
-
-//Função Nomeada
-//Vantagem: Por estar nomeada eu posso a chamar mais vezes
-//Função Anônima só é usada no gatilho quando é declarada
-// function dizOi(nome) {
-//     console.log(`${nome}, já chegou o disco voador!`);
-// }
-
-function manipulaDados(operacao, controle) {
-    const peca = controle.querySelector('[data-contador]');
-
-    if (operacao === "+") {
-        peca.value++;
-    } else {
-        peca.value--;
-    }
-}
-
-function atualizaEstatistica(peca) {
-    estatistica.forEach((elemento) => {
-        elemento.textContent = parseInt(elemento.textContent) + pecas[peca][elemento.dataset.estatistica]
-    })
-}
-
 const pecas = {
     "bracos": {
         "forca": 29,
@@ -64,3 +34,34 @@ const pecas = {
         "velocidade": -2
     }
 }
+
+controle.forEach((elemento) => {
+    elemento.addEventListener('click', (evento) => {
+        manipulaDados(evento.target.dataset.controle, evento.target.parentNode);
+        atualizaEstatistica(evento.target.dataset.peca)
+    })
+})
+
+//Função Nomeada
+//Vantagem: Por estar nomeada eu posso a chamar mais vezes
+//Função Anônima só é usada no gatilho quando é declarada
+// function dizOi(nome) {
+//     console.log(`${nome}, já chegou o disco voador!`);
+// }
+
+function manipulaDados(operacao, controle) {
+    const peca = controle.querySelector('[data-contador]');
+
+    if (operacao === "+") {
+        peca.value++;
+    } else {
+        peca.value--;
+    }
+}
+
+function atualizaEstatistica(peca) {
+    estatistica.forEach((elemento) => {
+        elemento.textContent = parseInt(elemento.textContent) + pecas[peca][elemento.dataset.estatistica]
+    })
+}
+
