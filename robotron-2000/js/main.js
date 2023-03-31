@@ -1,5 +1,5 @@
 const controle = document.querySelectorAll("[data-controle]")
-const estatisticas = document.querySelectorAll("[data-estatistica]")
+const estatistica = document.querySelectorAll("[data-estatistica]")
 
 controle.forEach((elemento) => {
     elemento.addEventListener('click', (evento) => {
